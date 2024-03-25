@@ -1,6 +1,6 @@
 import search from "../../assets/icons8-search.svg";
 import profile from "../../assets/icons8-male-user-24.png";
-const Navbars = () => {
+const Navbar = () => {
   return (
     <div className="container mx-auto px-0">
       <div className="navbar bg-base-100 px-2">
@@ -98,4 +98,4 @@ const Navbars = () => {
   );
 };
 
-export default Navbars;
+export default Navbar;

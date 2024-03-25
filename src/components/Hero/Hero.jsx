@@ -1,5 +1,5 @@
 import heroImage from "../../assets/hero-image.png";
-const Heros = () => {
+const Hero = () => {
   return (
     <div className="container mx-auto mt-5 px-2">
       <div
@@ -28,4 +28,4 @@ const Heros = () => {
   );
 };
 
-export default Heros;
+export default Hero;
