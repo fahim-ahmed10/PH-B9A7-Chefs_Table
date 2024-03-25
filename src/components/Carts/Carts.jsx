@@ -74,7 +74,7 @@ const Carts = ({cartItems}) => {
   );
 };
 
-Cart.propTypes = {
+Carts.propTypes = {
   cartItems: PropTypes.array.isRequired,
 }
 export default Carts;

@@ -4,14 +4,28 @@ import Heading from "./components/Heading/Heading";
 import CookingRecipes from "./components/CookingRecipes/CookingRecipes";
 import Carts from "./components/Carts/Carts";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState([]);
 
-  const handleWantToCook = cook =>{
-    const newCartItems = [...cartItems, cook];
-    setCartItems(newCartItems);
-  }
+  const handleWantToCook = (cook) => {
+    if (cartItems.length >= 1) {
+      if (cartItems[cartItems.length - 1].recipe_id === cook.recipe_id) {
+        toast.error("This recipe is already in your cart!");
+      } else {
+        const newCartItems = [...cartItems, cook];
+        setCartItems(newCartItems);
+        toast.success("Added to cart successfully!");
+      }
+    } else {
+      const newCartItems = [...cartItems, cook];
+      setCartItems(newCartItems);
+      toast.success("Added to cart successfully!");
+
+    }
+  };
 
   return (
     <>
@@ -23,9 +37,10 @@ function App() {
           <CookingRecipes handleWantToCook={handleWantToCook}></CookingRecipes>
         </div>
         <div className="w-full md:w-[45%] lg:w-[35%] mx-auto">
-          <Carts cartItems = {cartItems}></Carts>
+          <Carts cartItems={cartItems}></Carts>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }

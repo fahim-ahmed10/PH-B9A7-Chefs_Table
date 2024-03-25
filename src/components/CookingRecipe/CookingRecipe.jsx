@@ -42,9 +42,12 @@ const CookingRecipe = ({ recipe, handleWantToCook }) => {
         <img className="h-5" src={fireIcon} alt="fire" />
         <h4>{calories} calories</h4>
       </div>
-      <button onClick={() => handleWantToCook(recipe)} className="text-xl font-bold bg-[#0be58a] hover:bg-[#6cfbbf] px-5 py-3 rounded-3xl">
+      <button
+        onClick={() => handleWantToCook(recipe)}
+        className="text-xl font-bold bg-[#0be58a] hover:bg-[#6cfbbf] px-5 py-3 rounded-3xl"
+      >
         Want to Cook
-      </button>
+      </button>      
     </div>
   );
 };
